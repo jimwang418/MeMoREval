@@ -1,0 +1,11 @@
+MeMoREval
+Copyright 2026 Dexmate, Inc.
+
+This product includes material from the following project:
+
+SceneSmith (https://github.com/nepfaff/scenesmith)
+  The four simulated environments are adapted from scenes generated with
+  SceneSmith (Pfaff et al., "SceneSmith: Agentic Generation of
+  Simulation-Ready Indoor Scenes", ICML 2026). The articulated objects in
+  each scene were converted from SceneSmith assets into MJCF. Each scene's
+  package.xml carries the license declared by SceneSmith's scene generator.

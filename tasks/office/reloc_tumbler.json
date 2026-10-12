@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "task": "reloc_tumbler",
+  "scene": "office",
+  "category": "object_location",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reloc_tumbler_exp1",
+      "instruction": "Take the water tumbler and put it on the kitchenette unit in the kitchen.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "kitchenette_unit_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "kitchenette_unit_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "reloc_tumbler_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_origin] Where was the water tumbler before it was moved? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Where was the water tumbler before it was moved?",
+      "answer_type": "region",
+      "reference_answer": "meeting_room_2",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_tumbler_return",
+      "type": "action",
+      "instruction": "Put the water tumbler that's on the kitchenette unit in the kitchen back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "water_tumbler_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "water_tumbler_0",
+          "region": "meeting_room_2"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "meeting_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "meeting_table_1"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

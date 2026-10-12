@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_mug_color",
+  "scene": "home",
+  "category": "appearance_binding",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_mug_color_exp1",
+      "instruction": "Take the mug from the living room coffee table and put it on the master bedroom dresser.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "dresser_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "dresser_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_mug_color_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_color] What color is the mug you moved to the master bedroom dresser? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the mug you moved to the master bedroom dresser?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_mug_color_fetch",
+      "type": "action",
+      "instruction": "Bring me the red mug. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "coffee_mug"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "coffee_mug_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

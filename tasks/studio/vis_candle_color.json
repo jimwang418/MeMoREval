@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_candle_color",
+  "scene": "studio",
+  "category": "appearance_binding",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_candle_color_exp1",
+      "instruction": "Take the candle from the wall shelf in the dressing room and put it on the vanity table.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "vanity_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "vanity_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_candle_color_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_color] What color is the candle you moved to the vanity table? (answer with one lowercase color word, e.g. \"teal\")",
+      "question": "What color is the candle you moved to the vanity table?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_candle_color_fetch",
+      "type": "action",
+      "instruction": "Bring me the red candle. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "candle"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "candle_jar_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

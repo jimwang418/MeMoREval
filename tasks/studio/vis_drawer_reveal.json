@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_drawer_reveal",
+  "scene": "studio",
+  "category": "occluded_state",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_drawer_reveal_exp1",
+      "instruction": "Check inside the drawers of the chest in the dressing room, then close them again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "drawer_chest_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_middle"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_middle"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_2"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_2"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_drawer_reveal_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_drawer] The dressing room chest has 5 drawers. Counting from the top (1) to the bottom (5), which drawer held the scarf? (answer with just the integer)",
+      "question": "The dressing room chest has 5 drawers. Counting from the top (1) to the bottom (5), which drawer held the scarf?",
+      "answer_type": "count",
+      "reference_answer": 4,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_drawer_reveal_fetch",
+      "type": "action",
+      "instruction": "Bring me the scarf that was inside the dressing room chest. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "scarf"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "folded_beige_scarf_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "drawer_chest_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 14
+    }
+  ]
+}

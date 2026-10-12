@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "task": "qa_inventory_mugs",
+  "scene": "home",
+  "category": "set_aggregation",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "qa_inventory_mugs_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_mugcount] How many coffee mugs are in the living room? (answer with just the integer)",
+      "question": "How many coffee mugs are in the living room?",
+      "answer_type": "count",
+      "reference_answer": 3,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    }
+  ]
+}

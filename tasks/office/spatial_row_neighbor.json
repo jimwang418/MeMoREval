@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "task": "spatial_row_neighbor",
+  "scene": "office",
+  "category": "spatial_configuration",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spatial_row_neighbor_exp1",
+      "instruction": "Please move the bud vase from the meeting room over to the reception counter.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bud_vase_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "bud_vase_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "spatial_row_neighbor_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_neighbor] What kind of object was right next to the bud vase you moved to the reception? Answer with one generic word, e.g. \"plant\", \"lamp\", or \"mug\". (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What kind of object was right next to the bud vase you moved to the reception? Answer with one generic word, e.g. \"plant\", \"lamp\", or \"mug\".",
+      "answer_type": "category",
+      "reference_answer": [
+        "book"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_row_neighbor_fetch",
+      "type": "action",
+      "instruction": "Bring me the object that was right next to the bud vase you moved to the reception. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "object"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

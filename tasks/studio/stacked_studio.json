@@ -1,0 +1,1408 @@
+{
+  "schema_version": "1.0",
+  "task": "stacked_studio",
+  "scene": "studio",
+  "components": [
+    "loc_gaffer_tape",
+    "pref_client_plant",
+    "vis_candle_color",
+    "spatial_shelf_vacate",
+    "reloc_satchel",
+    "collect_shoes",
+    "vis_mug_room",
+    "vis_drawer_reveal",
+    "vis_cart_clearout",
+    "vis_row_neighbor"
+  ],
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "By the way, the client loved the plant in the purple pot."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp2",
+      "instruction": "Take a look at the coffee mugs around the studio.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp3",
+      "instruction": "Take the storage box off the editing room bookcase and put it on the bench there.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "storage_box_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "storage_box_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bench_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "bench_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp4",
+      "instruction": "Clear the items off the utility cart's upper tray in props storage and put them on the work table, leaving the tape dispenser.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "thermal_shipping_labels_roll_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "thermal_shipping_labels_roll_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "carbonless_receipt_order_forms_booklet_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "carbonless_receipt_order_forms_booklet_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "barcode_scanner_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "barcode_scanner_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp5",
+      "instruction": "Take the duffel bag off the shelving rack by the south wall of props storage and put it on the work table.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "duffel_bag_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "duffel_bag_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp6",
+      "instruction": "Take the satchel from props storage and put it on the bench ottoman in the dressing room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bench_ottoman_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "bench_ottoman_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp7",
+      "instruction": "Take the candle from the wall shelf in the dressing room and put it on the vanity table.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "vanity_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "vanity_table_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_studio_exp8",
+      "instruction": "Check inside the drawers of the chest in the dressing room, then close them again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "drawer_chest_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_middle"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_middle"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_2"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_2"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_up_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "loc_gaffer_tape_qa_loc",
+      "component_task": "loc_gaffer_tape",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [loc_gaffer_tape_qa_loc] Which room is the gaffer tape in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the gaffer tape in?",
+      "answer_type": "region",
+      "reference_answer": "shooting_area",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_client_plant_qa_pref",
+      "component_task": "pref_client_plant",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_client_plant_qa_pref] What did I say the client loved? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What did I say the client loved?",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "plant"
+        ],
+        [
+          "succulent"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_client_plant_qa_loc",
+      "component_task": "pref_client_plant",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_client_plant_qa_loc] Which room is the client's favorite plant in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the client's favorite plant in?",
+      "answer_type": "region",
+      "reference_answer": "dressing_room",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_candle_color_qa_color",
+      "component_task": "vis_candle_color",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_candle_color_qa_color] What color is the candle you moved to the vanity table? (answer with one lowercase color word, e.g. \"teal\")",
+      "question": "What color is the candle you moved to the vanity table?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_shelf_vacate_qa_level",
+      "component_task": "spatial_shelf_vacate",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_shelf_vacate_qa_level] The editing room bookcase has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the storage box on before you moved it off the shelf? (answer with just the integer)",
+      "question": "The editing room bookcase has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the storage box on before you moved it off the shelf?",
+      "answer_type": "count",
+      "reference_answer": 3,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_satchel_qa_origin",
+      "component_task": "reloc_satchel",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [reloc_satchel_qa_origin] Which piece of furniture was that satchel on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was that satchel on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "shelving_rack"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_shoes_qa_floor",
+      "component_task": "collect_shoes",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [collect_shoes_qa_floor] Shoes are lying on the floor somewhere in the studio - how many, in which room? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Shoes are lying on the floor somewhere in the studio - how many, in which room?",
+      "answer_type": "set",
+      "reference_answer": {
+        "dressing_room": 4
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_mug_room_qa_room",
+      "component_task": "vis_mug_room",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_mug_room_qa_room] Which room is the orange mug in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the orange mug in?",
+      "answer_type": "region",
+      "reference_answer": "editing_room",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_drawer_reveal_qa_drawer",
+      "component_task": "vis_drawer_reveal",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_drawer_reveal_qa_drawer] The dressing room chest has 5 drawers. Counting from the top (1) to the bottom (5), which drawer held the scarf? (answer with just the integer)",
+      "question": "The dressing room chest has 5 drawers. Counting from the top (1) to the bottom (5), which drawer held the scarf?",
+      "answer_type": "count",
+      "reference_answer": 4,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_cart_clearout_qa_next_to",
+      "component_task": "vis_cart_clearout",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_cart_clearout_qa_next_to] What item sat right next to the tape dispenser on the utility cart's upper tray? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What item sat right next to the tape dispenser on the utility cart's upper tray?",
+      "answer_type": "category",
+      "reference_answer": [
+        "barcode_scanner"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_row_neighbor_qa_row",
+      "component_task": "vis_row_neighbor",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_row_neighbor_qa_row] What color is the bag that sat right next to the duffel before you moved it off the shelving rack? (answer with one lowercase color word, e.g. \"teal\")",
+      "question": "What color is the bag that sat right next to the duffel before you moved it off the shelving rack?",
+      "answer_type": "color",
+      "reference_answer": "yellow",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "loc_gaffer_tape_fetch",
+      "component_task": "loc_gaffer_tape",
+      "type": "action",
+      "instruction": "Bring me the gaffer tape. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "gaffer_tape"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "gaffer_tape_roll_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "gaffer_tape_roll_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "gaffer_tape_roll_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "pref_client_plant_fetch",
+      "component_task": "pref_client_plant",
+      "type": "action",
+      "instruction": "Bring me the client's favorite plant. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "plant"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "potted_succulent_plant_4",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_4"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "gaffer_tape_roll_0",
+          "receptacle": "equipment_cart_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_mug_room_fetch",
+      "component_task": "vis_mug_room",
+      "type": "action",
+      "instruction": "Bring me the orange mug. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "coffee_mug"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "coffee_mug_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "potted_succulent_plant_4",
+          "receptacle": "wall_shelf_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_candle_color_fetch",
+      "component_task": "vis_candle_color",
+      "type": "action",
+      "instruction": "Bring me the red candle. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "candle"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "candle_jar_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "candle_jar_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "coffee_mug_0",
+          "receptacle": "cork_coaster_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_cart_clearout_fetch",
+      "component_task": "vis_cart_clearout",
+      "type": "action",
+      "instruction": "Bring me the item that sat right next to the tape dispenser on the utility cart. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "cart item"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "barcode_scanner_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "barcode_scanner_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "barcode_scanner_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "candle_jar_1",
+          "receptacle": "wall_shelf_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_row_neighbor_fetch",
+      "component_task": "vis_row_neighbor",
+      "type": "action",
+      "instruction": "Bring me the bag that sat right next to the duffel you moved. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "bag"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "satchel_bag_2",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "barcode_scanner_0",
+          "receptacle": "utility_cart_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_shelf_vacate_fetch",
+      "component_task": "spatial_shelf_vacate",
+      "type": "action",
+      "instruction": "Bring me the box that sits two shelf levels below where the box you moved off the editing room bookcase used to be. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "box"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "storage_box_2",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "storage_box_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "storage_box_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "satchel_bag_2",
+          "receptacle": "shelving_rack_2"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "reloc_satchel_return",
+      "component_task": "reloc_satchel",
+      "type": "action",
+      "instruction": "Put the satchel that's on the bench ottoman in the dressing room back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "satchel_bag_1"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "satchel_bag_1",
+          "region": "props_storage"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_rack_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_rack_1"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "storage_box_2",
+          "receptacle": "bookcase_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 16
+    },
+    {
+      "id": "vis_drawer_reveal_fetch",
+      "component_task": "vis_drawer_reveal",
+      "type": "action",
+      "instruction": "Bring me the scarf that was inside the dressing room chest. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "scarf"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "folded_beige_scarf_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "drawer_chest_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "folded_beige_scarf_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "drawer_chest_0",
+            "subtarget": "drawer_down_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "satchel_bag_1",
+          "receptacle": "shelving_rack_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 14
+    },
+    {
+      "id": "collect_shoes_gather",
+      "component_task": "collect_shoes",
+      "type": "action",
+      "instruction": "Gather the shoes that are lying on the floor and put them on the coffee table in the client lounge.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "sneaker",
+        "destination": "client_lounge"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "left_sneaker_0",
+            "left_sneaker_1",
+            "right_sneaker_0",
+            "right_sneaker_1"
+          ],
+          "region": "client_lounge"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "left_sneaker_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "left_sneaker_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "right_sneaker_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "right_sneaker_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "left_sneaker_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "left_sneaker_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "right_sneaker_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "right_sneaker_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "folded_beige_scarf_0",
+          "receptacle": "drawer_chest_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "bathroom"
+        }
+      ],
+      "max_steps": 30
+    }
+  ]
+}

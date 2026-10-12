@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_stack_order",
+  "scene": "home",
+  "category": "spatial_configuration",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_stack_order_exp1",
+      "instruction": "Take the top book from the stack on the dining room dresser and put it on the dining table.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "dining_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "dining_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_stack_order_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_under] Earlier there was a stack of two books on the dining room dresser. What color was the bottom book? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "Earlier there was a stack of two books on the dining room dresser. What color was the bottom book?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_stack_order_fetch",
+      "type": "action",
+      "instruction": "Bring me the book that was at the bottom of the stack on the dresser. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "hardcover_book"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

@@ -1,0 +1,1608 @@
+{
+  "schema_version": "1.0",
+  "task": "stacked_clinic",
+  "scene": "clinic",
+  "components": [
+    "loc_diagnostic_kit",
+    "vis_cabinet_reveal",
+    "vis_sanitizer_color",
+    "vis_medbox_shelf",
+    "qa_inventory_tissues",
+    "collect_gloveboxes",
+    "spatial_row_neighbor",
+    "spatial_shelf_vacate",
+    "pref_allergy_med",
+    "pref_exam_setup",
+    "reloc_clipboard"
+  ],
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "By the way, nasal sprays don't agree with me - for my allergies I only ever take the tablets."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp2",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "Dr. Alvarez sees her patients in exam room 3."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp3",
+      "instruction": "Check the hand sanitizer in each exam room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hand_sanitizer_bottle_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hand_sanitizer_bottle_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hand_sanitizer_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hand_sanitizer_pump_bottle_3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp4",
+      "instruction": "Check the supplies around the clinic.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_exam_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp5",
+      "instruction": "Check inside the supply cabinets in the exam rooms, then close them again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_left_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_right_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "specula_supply_box_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_right_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_left_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_left"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp6",
+      "instruction": "Check the exam room supplies.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "utility_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "office_chair_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp7",
+      "instruction": "Take the diagnostic kit case from the exam room to the lab and leave it on the lab cart.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "diagnostic_kit_case_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "diagnostic_kit_case_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "lab_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "lab_cart_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp8",
+      "instruction": "Take the stock bottle off the pharmacy counter and put it on the side table there.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "supplement_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "pharmacy_stock_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "pharmacy_stock_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_2"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp9",
+      "instruction": "Take the vitamins bottle off the pharmacy wall shelf and put it on the counter.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "vitamins_supplement_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "vitamins_supplement_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp10",
+      "instruction": "Have a look at the medication stock in the pharmacy.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_clinic_exp11",
+      "instruction": "Take the patient chart clipboard from the exam room to reception.",
+      "user_messages": [
+        "The patient chart clipboard is in exam room 2."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "loc_diagnostic_kit_qa_loc",
+      "component_task": "loc_diagnostic_kit",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [loc_diagnostic_kit_qa_loc] Which room is the diagnostic kit case in now? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the diagnostic kit case in now?",
+      "answer_type": "region",
+      "reference_answer": "lab",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_cabinet_reveal_qa_which_room",
+      "component_task": "vis_cabinet_reveal",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_cabinet_reveal_qa_which_room] Which exam room's cabinet has the pack of alcohol wipes inside? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which exam room's cabinet has the pack of alcohol wipes inside?",
+      "answer_type": "region",
+      "reference_answer": "exam_room_2",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_sanitizer_color_qa_color",
+      "component_task": "vis_sanitizer_color",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_sanitizer_color_qa_color] What color is the hand sanitizer bottle in exam room 2? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the hand sanitizer bottle in exam room 2?",
+      "answer_type": "color",
+      "reference_answer": "orange",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_medbox_shelf_qa_gondola",
+      "component_task": "vis_medbox_shelf",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_medbox_shelf_qa_gondola] What color are the medication boxes on the display shelf in the middle of the pharmacy? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color are the medication boxes on the display shelf in the middle of the pharmacy?",
+      "answer_type": "color",
+      "reference_answer": "purple",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "qa_inventory_tissues_qa_tissuecount",
+      "component_task": "qa_inventory_tissues",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_inventory_tissues_qa_tissuecount] How many tissue boxes are there in the whole clinic? (answer with just the integer)",
+      "question": "How many tissue boxes are there in the whole clinic?",
+      "answer_type": "count",
+      "reference_answer": 4,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_gloveboxes_qa_gloves",
+      "component_task": "collect_gloveboxes",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [collect_gloveboxes_qa_gloves] Boxes of exam gloves sit out in some exam rooms - how many in which rooms? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Boxes of exam gloves sit out in some exam rooms - how many in which rooms?",
+      "answer_type": "set",
+      "reference_answer": {
+        "exam_room_1": 1,
+        "exam_room_2": 1,
+        "exam_room_3": 1
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_row_neighbor_qa_row_neighbor",
+      "component_task": "spatial_row_neighbor",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_row_neighbor_qa_row_neighbor] Bottles stood in a row on the pharmacy counter. What was immediately LEFT of the stock bottle (as you faced the counter) before you took it? Name the product type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Bottles stood in a row on the pharmacy counter. What was immediately LEFT of the stock bottle (as you faced the counter) before you took it? Name the product type.",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "cough_syrup"
+        ],
+        [
+          "cough syrup"
+        ],
+        [
+          "syrup"
+        ],
+        [
+          "cough syrup bottle"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_shelf_vacate_qa_level",
+      "component_task": "spatial_shelf_vacate",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_shelf_vacate_qa_level] The pharmacy wall shelf unit has several levels. Counting from the bottom (1), which level was the vitamins bottle on before you moved it? (answer with just the integer)",
+      "question": "The pharmacy wall shelf unit has several levels. Counting from the bottom (1), which level was the vitamins bottle on before you moved it?",
+      "answer_type": "count",
+      "reference_answer": 4,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_allergy_med_qa_pref",
+      "component_task": "pref_allergy_med",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_allergy_med_qa_pref] What form of allergy medicine does the user take? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What form of allergy medicine does the user take?",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "tablets"
+        ],
+        [
+          "tablet"
+        ],
+        [
+          "pills"
+        ],
+        [
+          "pill"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_exam_setup_qa_room",
+      "component_task": "pref_exam_setup",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_exam_setup_qa_room] Which exam room does Dr. Alvarez use? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which exam room does Dr. Alvarez use?",
+      "answer_type": "region",
+      "reference_answer": "exam_room_3",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_clipboard_qa_origin",
+      "component_task": "reloc_clipboard",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [reloc_clipboard_qa_origin] Which piece of furniture was the patient chart clipboard on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was the patient chart clipboard on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "desk"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_sanitizer_color_fetch",
+      "component_task": "vis_sanitizer_color",
+      "type": "action",
+      "instruction": "Bring me the orange hand sanitizer bottle. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "hand_sanitizer"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hand_sanitizer_bottle_4",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hand_sanitizer_bottle_4"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hand_sanitizer_bottle_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "pref_allergy_med_fetch",
+      "component_task": "pref_allergy_med",
+      "type": "action",
+      "instruction": "Bring me my allergy medicine. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "allergy"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "allergy_relief_tablets_box_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "allergy_relief_tablets_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "allergy_relief_tablets_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "hand_sanitizer_bottle_4",
+          "receptacle": "exam_table_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "loc_diagnostic_kit_fetch",
+      "component_task": "loc_diagnostic_kit",
+      "type": "action",
+      "instruction": "Bring me the diagnostic kit case. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "diagnostic_kit"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "diagnostic_kit_case_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "diagnostic_kit_case_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "diagnostic_kit_case_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "allergy_relief_tablets_box_0",
+          "receptacle": "gondola_display_shelf_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_row_neighbor_fetch",
+      "component_task": "spatial_row_neighbor",
+      "type": "action",
+      "instruction": "Bring me the bottle that stood immediately left of the stock bottle on the pharmacy counter, as you faced it. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "bottle"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "cough_syrup_bottle_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cough_syrup_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "cough_syrup_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "diagnostic_kit_case_0",
+          "receptacle": "medical_supply_cart_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_shelf_vacate_fetch",
+      "component_task": "spatial_shelf_vacate",
+      "type": "action",
+      "instruction": "Bring me the box that sits two shelf levels below where the vitamins bottle used to be on the pharmacy wall shelf. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "box"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "otc_pain_reliever_box_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "otc_pain_reliever_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "otc_pain_reliever_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "cough_syrup_bottle_0",
+          "receptacle": "floor"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_cabinet_reveal_fetch",
+      "component_task": "vis_cabinet_reveal",
+      "type": "action",
+      "instruction": "Bring me the pack of alcohol wipes from the exam room cabinet it's stored in. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "alcohol_wipes"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "alcohol_wipes_pack_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "alcohol_wipes_pack_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "alcohol_wipes_pack_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "otc_pain_reliever_box_0",
+          "receptacle": "shelving_unit_2"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 14
+    },
+    {
+      "id": "collect_gloveboxes_gather",
+      "component_task": "collect_gloveboxes",
+      "type": "action",
+      "instruction": "Gather the boxes of exam gloves from the exam rooms and put them on the supply cart in exam room 1.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "gloves",
+        "destination": "exam_room_1"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "exam_gloves_box_0",
+            "glove_box_0",
+            "gloves_box_dispenser_0"
+          ],
+          "region": "exam_room_1"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "gloves_box_dispenser_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "gloves_box_dispenser_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "glove_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "glove_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_gloves_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "exam_gloves_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "alcohol_wipes_pack_0",
+          "receptacle": "cabinet_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 26
+    },
+    {
+      "id": "pref_exam_setup_setup",
+      "component_task": "pref_exam_setup",
+      "type": "action",
+      "instruction": "Dr. Alvarez has a patient arriving soon - take the exam pillow to her room.",
+      "goal": {
+        "type": "deliver",
+        "object_hint": "medical_exam_pillow_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "medical_exam_pillow_0",
+          "region": "exam_room_3",
+          "allow_held": true
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_exam_pillow_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "medical_exam_pillow_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "exam_table_1"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "glove_box_0",
+          "receptacle": "exam_table_0"
+        },
+        {
+          "op": "move_object",
+          "id": "exam_gloves_box_0",
+          "receptacle": "writing_desk_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 16
+    },
+    {
+      "id": "reloc_clipboard_return",
+      "component_task": "reloc_clipboard",
+      "type": "action",
+      "instruction": "Put the patient chart clipboard back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "patient_chart_clipboard_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "patient_chart_clipboard_0",
+          "region": "exam_room_2"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_1"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "medical_exam_pillow_0",
+          "receptacle": "medical_stool_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "corridor"
+        }
+      ],
+      "max_steps": 16
+    },
+    {
+      "id": "vis_medbox_shelf_fetch",
+      "component_task": "vis_medbox_shelf",
+      "type": "action",
+      "instruction": "Bring me one of the purple medication boxes. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "deliver",
+        "object_hint": "medication_box"
+      },
+      "success": {
+        "predicate": "any_of",
+        "params": {
+          "criteria": [
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_0",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_5",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_6",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_7",
+                "target": "side_table_0"
+              }
+            }
+          ]
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 12
+    }
+  ]
+}

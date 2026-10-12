@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0",
+  "task": "spatial_row_neighbor",
+  "scene": "clinic",
+  "category": "spatial_configuration",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spatial_row_neighbor_exp1",
+      "instruction": "Take the stock bottle off the pharmacy counter and put it on the side table there.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "supplement_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "pharmacy_stock_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "pharmacy_stock_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_2"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "spatial_row_neighbor_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_row_neighbor] Bottles stood in a row on the pharmacy counter. What was immediately LEFT of the stock bottle (as you faced the counter) before you took it? Name the product type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Bottles stood in a row on the pharmacy counter. What was immediately LEFT of the stock bottle (as you faced the counter) before you took it? Name the product type.",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "cough_syrup"
+        ],
+        [
+          "cough syrup"
+        ],
+        [
+          "syrup"
+        ],
+        [
+          "cough syrup bottle"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_row_neighbor_fetch",
+      "type": "action",
+      "instruction": "Bring me the bottle that stood immediately left of the stock bottle on the pharmacy counter, as you faced it. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "bottle"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "cough_syrup_bottle_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cough_syrup_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "cough_syrup_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

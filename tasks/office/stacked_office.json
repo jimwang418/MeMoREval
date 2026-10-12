@@ -1,0 +1,1143 @@
+{
+  "schema_version": "1.0",
+  "task": "stacked_office",
+  "scene": "office",
+  "components": [
+    "loc_kettle",
+    "pref_water_carafe",
+    "vis_tumbler_color",
+    "spatial_row_neighbor",
+    "reloc_tumbler",
+    "collect_succulents",
+    "vis_bowl_stack",
+    "vis_mug_perch",
+    "vis_book_room",
+    "vis_bowl_station"
+  ],
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "One thing about me — I always drink from the glass water carafe, never the tumblers or bottles."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp2",
+      "instruction": "Take a look at the coffee mugs around the office.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp3",
+      "instruction": "Please move the bud vase from the meeting room over to the reception counter.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bud_vase_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "bud_vase_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp4",
+      "instruction": "Take the water tumbler and put it on the kitchenette unit in the kitchen.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "kitchenette_unit_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "kitchenette_unit_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp5",
+      "instruction": "Take a look at the bowls in the kitchen.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ceramic_bowl_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_office_exp6",
+      "instruction": "Take a look at what is on the microwave station.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ceramic_bowl_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "loc_kettle_qa_loc",
+      "component_task": "loc_kettle",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [loc_kettle_qa_loc] Which room is the electric kettle in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the electric kettle in?",
+      "answer_type": "region",
+      "reference_answer": "kitchen",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_water_carafe_qa_pref",
+      "component_task": "pref_water_carafe",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_water_carafe_qa_pref] What does the user drink from? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What does the user drink from?",
+      "answer_type": "category",
+      "reference_answer": [
+        "water_carafe"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_water_carafe_qa_loc",
+      "component_task": "pref_water_carafe",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_water_carafe_qa_loc] Where is the water carafe? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Where is the water carafe?",
+      "answer_type": "region",
+      "reference_answer": "meeting_room",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_tumbler_color_qa_color",
+      "component_task": "vis_tumbler_color",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_tumbler_color_qa_color] One of the water tumblers in the office is brightly colored - what color is it? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "One of the water tumblers in the office is brightly colored - what color is it?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_row_neighbor_qa_neighbor",
+      "component_task": "spatial_row_neighbor",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_row_neighbor_qa_neighbor] What kind of object was right next to the bud vase you moved to the reception? Answer with one generic word, e.g. \"plant\", \"lamp\", or \"mug\". (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What kind of object was right next to the bud vase you moved to the reception? Answer with one generic word, e.g. \"plant\", \"lamp\", or \"mug\".",
+      "answer_type": "category",
+      "reference_answer": [
+        "book"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_tumbler_qa_origin",
+      "component_task": "reloc_tumbler",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [reloc_tumbler_qa_origin] Where was the water tumbler before it was moved? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Where was the water tumbler before it was moved?",
+      "answer_type": "region",
+      "reference_answer": "meeting_room_2",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_succulents_qa_orig",
+      "component_task": "collect_succulents",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [collect_succulents_qa_orig] Where are the potted succulents? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Where are the potted succulents?",
+      "answer_type": "set",
+      "reference_answer": {
+        "open_office": 1,
+        "meeting_room": 2
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_bowl_stack_qa_counter",
+      "component_task": "vis_bowl_stack",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_bowl_stack_qa_counter] What color is the ceramic bowl stacked on the kitchen counter? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the ceramic bowl stacked on the kitchen counter?",
+      "answer_type": "color",
+      "reference_answer": "blue",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_mug_perch_qa_color",
+      "component_task": "vis_mug_perch",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_mug_perch_qa_color] What color is the coffee mug on the standing-height table in the open office? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the coffee mug on the standing-height table in the open office?",
+      "answer_type": "color",
+      "reference_answer": "purple",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_book_room_qa_blue",
+      "component_task": "vis_book_room",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_book_room_qa_blue] Which room is the blue hardcover book in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the blue hardcover book in?",
+      "answer_type": "region",
+      "reference_answer": "meeting_room",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_bowl_station_qa_color",
+      "component_task": "vis_bowl_station",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_bowl_station_qa_color] What color is the ceramic bowl sitting up on the microwave station? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the ceramic bowl sitting up on the microwave station?",
+      "answer_type": "color",
+      "reference_answer": "yellow",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "loc_kettle_fetch",
+      "component_task": "loc_kettle",
+      "type": "action",
+      "instruction": "Bring me the electric kettle. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "electric_kettle_0"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "electric_kettle_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "electric_kettle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "electric_kettle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_bowl_stack_fetch",
+      "component_task": "vis_bowl_stack",
+      "type": "action",
+      "instruction": "Bring me the bowl that was stacked on the kitchen counter. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "ceramic_bowl"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "ceramic_bowl_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ceramic_bowl_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "ceramic_bowl_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "electric_kettle_0",
+          "receptacle": "kitchenette_unit_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_book_room_fetch",
+      "component_task": "vis_book_room",
+      "type": "action",
+      "instruction": "Bring me the blue hardcover book. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "hardcover_book"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "ceramic_bowl_1",
+          "receptacle": "ceramic_bowl_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_bowl_station_fetch",
+      "component_task": "vis_bowl_station",
+      "type": "action",
+      "instruction": "Bring me the bowl from the microwave station. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "ceramic_bowl"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "ceramic_bowl_2",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ceramic_bowl_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "ceramic_bowl_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "hardcover_book_0",
+          "receptacle": "floating_shelf_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "pref_water_carafe_fetch",
+      "component_task": "pref_water_carafe",
+      "type": "action",
+      "instruction": "Bring me my usual water vessel. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "water_carafe"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "water_carafe_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_carafe_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_carafe_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "ceramic_bowl_2",
+          "receptacle": "microwave_station_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_mug_perch_fetch",
+      "component_task": "vis_mug_perch",
+      "type": "action",
+      "instruction": "Bring me the mug from the standing-height table. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "coffee_mug"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "coffee_mug_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "water_carafe_0",
+          "receptacle": "conference_table_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_tumbler_color_fetch",
+      "component_task": "vis_tumbler_color",
+      "type": "action",
+      "instruction": "Bring me the brightly colored water tumbler. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "water_tumbler"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "water_tumbler_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_tumbler_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_tumbler_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "coffee_mug_1",
+          "receptacle": "cork_drink_coaster_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_row_neighbor_fetch",
+      "component_task": "spatial_row_neighbor",
+      "type": "action",
+      "instruction": "Bring me the object that was right next to the bud vase you moved to the reception. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "object"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "water_tumbler_1",
+          "receptacle": "meeting_table_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "reloc_tumbler_return",
+      "component_task": "reloc_tumbler",
+      "type": "action",
+      "instruction": "Put the water tumbler that's on the kitchenette unit in the kitchen back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "water_tumbler_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "water_tumbler_0",
+          "region": "meeting_room_2"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_tumbler_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "meeting_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "meeting_table_1"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "hardcover_book_1",
+          "receptacle": "floating_shelf_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 16
+    },
+    {
+      "id": "collect_succulents_gather",
+      "component_task": "collect_succulents",
+      "type": "action",
+      "instruction": "Gather all the potted succulents and bring them to the reception.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "potted_succulent_plant",
+        "destination": "reception"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "potted_succulent_plant_0",
+            "potted_succulent_plant_1",
+            "potted_succulent_plant_2"
+          ],
+          "region": "reception"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "water_tumbler_0",
+          "receptacle": "meeting_table_1"
+        },
+        {
+          "op": "repark_robot",
+          "region": "reception"
+        }
+      ],
+      "max_steps": 30
+    }
+  ]
+}

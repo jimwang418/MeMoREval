@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0",
+  "task": "collect_gloveboxes",
+  "scene": "clinic",
+  "category": "set_aggregation",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "collect_gloveboxes_exp1",
+      "instruction": "Check the exam room supplies.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "utility_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "office_chair_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "collect_gloveboxes_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_gloves] Boxes of exam gloves sit out in some exam rooms - how many in which rooms? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Boxes of exam gloves sit out in some exam rooms - how many in which rooms?",
+      "answer_type": "set",
+      "reference_answer": {
+        "exam_room_1": 1,
+        "exam_room_2": 1,
+        "exam_room_3": 1
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_gloveboxes_gather",
+      "type": "action",
+      "instruction": "Gather the boxes of exam gloves from the exam rooms and put them on the supply cart in exam room 1.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "gloves",
+        "destination": "exam_room_1"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "exam_gloves_box_0",
+            "glove_box_0",
+            "gloves_box_dispenser_0"
+          ],
+          "region": "exam_room_1"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "gloves_box_dispenser_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "gloves_box_dispenser_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "glove_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "glove_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_gloves_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "exam_gloves_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_supply_cart_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "medical_supply_cart_0"
+          }
+        }
+      ],
+      "max_steps": 26
+    }
+  ]
+}

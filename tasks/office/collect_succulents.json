@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "task": "collect_succulents",
+  "scene": "office",
+  "category": "set_aggregation",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "collect_succulents_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_orig] Where are the potted succulents? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Where are the potted succulents?",
+      "answer_type": "set",
+      "reference_answer": {
+        "open_office": 1,
+        "meeting_room": 2
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_succulents_gather",
+      "type": "action",
+      "instruction": "Gather all the potted succulents and bring them to the reception.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "potted_succulent_plant",
+        "destination": "reception"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "potted_succulent_plant_0",
+            "potted_succulent_plant_1",
+            "potted_succulent_plant_2"
+          ],
+          "region": "reception"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "potted_succulent_plant_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "potted_succulent_plant_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_counter_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_counter_0"
+          }
+        }
+      ],
+      "max_steps": 30
+    }
+  ]
+}

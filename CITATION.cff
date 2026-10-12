@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use MeMoREval, please cite the paper below."
+title: "MeMoREval"
+url: "https://memoreval.github.io/"
+repository-code: "https://github.com/jimwang418/MeMoREval"
+license: Apache-2.0
+authors:
+  - family-names: Wang
+    given-names: Junxiang
+  - family-names: Liu
+    given-names: Yuchen
+  - family-names: Wu
+    given-names: Yi
+  - family-names: Chen
+    given-names: Guofei
+  - family-names: Pechuk
+    given-names: Nir
+  - family-names: Chen
+    given-names: Tao
+  - family-names: Erickson
+    given-names: Zackory
+  - family-names: Qin
+    given-names: Yuzhe
+  - family-names: Li
+    given-names: Tianyu
+preferred-citation:
+  type: article
+  title: "What Should Embodied Agents Remember? Benchmarking and Evaluating Memory Modality for Embodied Agents"
+  authors:
+    - family-names: Wang
+      given-names: Junxiang
+    - family-names: Liu
+      given-names: Yuchen
+    - family-names: Wu
+      given-names: Yi
+    - family-names: Chen
+      given-names: Guofei
+    - family-names: Pechuk
+      given-names: Nir
+    - family-names: Chen
+      given-names: Tao
+    - family-names: Erickson
+      given-names: Zackory
+    - family-names: Qin
+      given-names: Yuzhe
+    - family-names: Li
+      given-names: Tianyu
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.12561"
+  url: "https://arxiv.org/abs/2610.12561"

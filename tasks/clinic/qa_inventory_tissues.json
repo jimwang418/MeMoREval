@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "task": "qa_inventory_tissues",
+  "scene": "clinic",
+  "category": "set_aggregation",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "qa_inventory_tissues_exp1",
+      "instruction": "Check the supplies around the clinic.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_exam_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "qa_inventory_tissues_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_tissuecount] How many tissue boxes are there in the whole clinic? (answer with just the integer)",
+      "question": "How many tissue boxes are there in the whole clinic?",
+      "answer_type": "count",
+      "reference_answer": 4,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    }
+  ]
+}

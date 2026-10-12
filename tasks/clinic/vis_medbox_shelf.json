@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_medbox_shelf",
+  "scene": "clinic",
+  "category": "appearance_binding",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_medbox_shelf_exp1",
+      "instruction": "Have a look at the medication stock in the pharmacy.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_8"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_medbox_shelf_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_gondola] What color are the medication boxes on the display shelf in the middle of the pharmacy? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color are the medication boxes on the display shelf in the middle of the pharmacy?",
+      "answer_type": "color",
+      "reference_answer": "purple",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_medbox_shelf_fetch",
+      "type": "action",
+      "instruction": "Bring me one of the purple medication boxes. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "deliver",
+        "object_hint": "medication_box"
+      },
+      "success": {
+        "predicate": "any_of",
+        "params": {
+          "criteria": [
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_0",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_5",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_6",
+                "target": "side_table_0"
+              }
+            },
+            {
+              "kind": "fetched_onto",
+              "params": {
+                "instance": "medication_box_7",
+                "target": "side_table_0"
+              }
+            }
+          ]
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "medication_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 12
+    }
+  ]
+}

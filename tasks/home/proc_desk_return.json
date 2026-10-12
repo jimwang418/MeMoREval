@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0",
+  "task": "proc_desk_return",
+  "scene": "home",
+  "category": "skill_outcome",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "proc_desk_return_exp1",
+      "instruction": "Take the notebook and the laptop from the writing desk in the master bedroom and put them on the bedroom bench. Then return the notebook to where you took it from. Actually, on second thought, bring it back to the bench too.",
+      "skill_settings": {
+        "failing_place_variant": "place_b"
+      },
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "softcover_notebook_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "softcover_notebook_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "slim_aluminum_laptop_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "slim_aluminum_laptop_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "softcover_notebook_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "softcover_notebook_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "softcover_notebook_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "bedroom_bench_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "proc_desk_return_return",
+      "type": "action",
+      "instruction": "Return the laptop on the bedroom bench to where you took it from.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "slim_aluminum_laptop_0"
+      },
+      "success": {
+        "predicate": "first_place_skill",
+        "params": {
+          "destinations": [
+            "writing_desk_0"
+          ],
+          "skill": "place_a",
+          "instance": "slim_aluminum_laptop_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "slim_aluminum_laptop_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "slim_aluminum_laptop_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "writing_desk_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "writing_desk_0"
+          }
+        }
+      ],
+      "allowed_skills": [
+        "observe",
+        "navigate",
+        "navigate_to",
+        "open",
+        "close",
+        "pick",
+        "place_a",
+        "place_b",
+        "wait"
+      ],
+      "skill_settings": {
+        "failing_place_variant": "place_b"
+      },
+      "max_steps": 16
+    }
+  ]
+}

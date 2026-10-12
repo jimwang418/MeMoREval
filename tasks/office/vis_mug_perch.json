@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_mug_perch",
+  "scene": "office",
+  "category": "appearance_binding",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_mug_perch_exp1",
+      "instruction": "Take a look at the coffee mugs around the office.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_mug_perch_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_color] What color is the coffee mug on the standing-height table in the open office? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the coffee mug on the standing-height table in the open office?",
+      "answer_type": "color",
+      "reference_answer": "purple",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_mug_perch_fetch",
+      "type": "action",
+      "instruction": "Bring me the mug from the standing-height table. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "coffee_mug"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "coffee_mug_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

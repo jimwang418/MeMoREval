@@ -1,0 +1,8 @@
+# Staging for files hosted elsewhere (Hugging Face); never commit
+release_staging/
+
+.env
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/

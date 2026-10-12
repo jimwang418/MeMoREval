@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "task": "pref_exam_setup",
+  "scene": "clinic",
+  "category": "user_preference",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pref_exam_setup_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "Dr. Alvarez sees her patients in exam room 3."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "pref_exam_setup_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_room] Which exam room does Dr. Alvarez use? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which exam room does Dr. Alvarez use?",
+      "answer_type": "region",
+      "reference_answer": "exam_room_3",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_exam_setup_setup",
+      "type": "action",
+      "instruction": "Dr. Alvarez has a patient arriving soon - take the exam pillow to her room.",
+      "goal": {
+        "type": "deliver",
+        "object_hint": "medical_exam_pillow_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "medical_exam_pillow_0",
+          "region": "exam_room_3",
+          "allow_held": true
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "medical_exam_pillow_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "medical_exam_pillow_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "exam_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "exam_table_1"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

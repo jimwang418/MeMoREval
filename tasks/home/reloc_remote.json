@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "task": "reloc_remote",
+  "scene": "home",
+  "category": "object_location",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reloc_remote_exp1",
+      "instruction": "Take the TV remote from the coffee table and put it on the side table in the master bedroom.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "reloc_remote_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_origin] Which piece of furniture was that TV remote on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was that TV remote on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "coffee_table"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_remote_return",
+      "type": "action",
+      "instruction": "Put the TV remote that's on the side table in the master bedroom back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "tv_remote_control_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "tv_remote_control_0",
+          "region": "living_room"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

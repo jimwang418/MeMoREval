@@ -1,0 +1,481 @@
+{
+  "schema_version": "1.0",
+  "task": "proc_pharmacy_return",
+  "scene": "clinic",
+  "category": "skill_outcome",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "proc_pharmacy_return_exp1",
+      "instruction": "Take the prescription bottle and the pill bottle from the pharmacy shelving to the counter. Then return the prescription bottle to where you took it from. Actually, on second thought, bring it back to the counter too.",
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "medication_box_1",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_2",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_3",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_4",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_1",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_2",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_3",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "pill_bottle_1",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "pill_bottle_2",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "pill_bottle_3",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "prescription_pill_bottle_1",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "prescription_pill_bottle_2",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "prescription_pill_bottle_3",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_4",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_5",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_6",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_7",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_8",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_9",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "otc_pain_reliever_box_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "vitamins_supplement_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "allergy_relief_tablets_box_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_5",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_6",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_7",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_10",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_11",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_12",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_13",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_14",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "nasal_spray_bottle_15",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "plastic_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "plastic_bottle_1",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "antacid_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "barcode_scanner_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "card_payment_terminal_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "cough_syrup_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "desk_telephone_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "eye_drops_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "medication_box_8",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "pharmacy_stock_bottle_0",
+          "region": "lab"
+        },
+        {
+          "op": "move_object",
+          "id": "supplement_bottle_0",
+          "region": "lab"
+        }
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "prescription_pill_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "prescription_pill_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "pill_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "pill_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "prescription_pill_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "prescription_pill_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_unit_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "shelving_unit_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_unit_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "prescription_pill_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "proc_pharmacy_return_return",
+      "type": "action",
+      "instruction": "Return the pill bottle on the pharmacy counter to where you took it from.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "pill_bottle_0"
+      },
+      "success": {
+        "predicate": "first_place_key",
+        "params": {
+          "destinations": [
+            "shelving_unit_0",
+            "shelving_unit_1",
+            "shelving_unit_2",
+            "gondola_display_shelf_0"
+          ],
+          "key": "in",
+          "instance": "pill_bottle_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "pill_bottle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "pill_bottle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_unit_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_unit_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "prescription_pill_bottle_0",
+          "region": "lab"
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

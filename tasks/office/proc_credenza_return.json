@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "task": "proc_credenza_return",
+  "scene": "office",
+  "category": "skill_outcome",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "proc_credenza_return_exp1",
+      "instruction": "Take the paper ream and the letter tray from the credenza in the open office and put them on the meeting table in the open office. Then return the paper ream to where you took it from. Actually, on second thought, bring it back to the meeting table in the open office too.",
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "inkjet_printer_0",
+          "region": "bathroom"
+        }
+      ],
+      "skill_settings": {
+        "failing_place_variant": "place_a"
+      },
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "credenza_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "credenza_0",
+            "subtarget": "door_left_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ream_of_printer_paper_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "ream_of_printer_paper_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "document_letter_tray_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "document_letter_tray_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "ream_of_printer_paper_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "ream_of_printer_paper_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "credenza_0"
+          }
+        },
+        {
+          "skill": "place_a",
+          "args": {
+            "dest": "credenza_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "credenza_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "ream_of_printer_paper_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "meeting_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "proc_credenza_return_return",
+      "type": "action",
+      "instruction": "Return the letter tray on the meeting table in the open office to where you took it from.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "document_letter_tray_0"
+      },
+      "success": {
+        "predicate": "first_place_skill",
+        "params": {
+          "destinations": [
+            "credenza_0"
+          ],
+          "skill": "place_b",
+          "instance": "document_letter_tray_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "document_letter_tray_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "document_letter_tray_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "credenza_0"
+          }
+        },
+        {
+          "skill": "place_b",
+          "args": {
+            "dest": "credenza_0"
+          }
+        }
+      ],
+      "allowed_skills": [
+        "observe",
+        "navigate",
+        "navigate_to",
+        "open",
+        "close",
+        "pick",
+        "place_a",
+        "place_b",
+        "wait"
+      ],
+      "skill_settings": {
+        "failing_place_variant": "place_a"
+      },
+      "max_steps": 16
+    }
+  ]
+}

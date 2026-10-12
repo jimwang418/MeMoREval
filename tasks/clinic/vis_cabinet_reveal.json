@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_cabinet_reveal",
+  "scene": "clinic",
+  "category": "occluded_state",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_cabinet_reveal_exp1",
+      "instruction": "Check inside the supply cabinets in the exam rooms, then close them again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_left_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_right_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "specula_supply_box_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_right_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_1",
+            "subtarget": "door_left_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_2"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "cabinet_2",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_cabinet_reveal_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_which_room] Which exam room's cabinet has the pack of alcohol wipes inside? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which exam room's cabinet has the pack of alcohol wipes inside?",
+      "answer_type": "region",
+      "reference_answer": "exam_room_2",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_cabinet_reveal_fetch",
+      "type": "action",
+      "instruction": "Bring me the pack of alcohol wipes from the exam room cabinet it's stored in. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "alcohol_wipes"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "alcohol_wipes_pack_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cabinet_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "alcohol_wipes_pack_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "alcohol_wipes_pack_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 14
+    }
+  ]
+}

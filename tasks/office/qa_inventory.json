@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "task": "qa_inventory",
+  "scene": "office",
+  "category": "set_aggregation",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "qa_inventory_qa_succ",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_succ] How many potted succulent plants are in the office, and in which rooms? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "How many potted succulent plants are in the office, and in which rooms?",
+      "answer_type": "set",
+      "reference_answer": {
+        "open_office": 1,
+        "meeting_room": 2
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "qa_inventory_qa_mug",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_mug] How many coffee mugs are in the office, and in which rooms? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "How many coffee mugs are in the office, and in which rooms?",
+      "answer_type": "set",
+      "reference_answer": {
+        "open_office": 2
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    }
+  ]
+}

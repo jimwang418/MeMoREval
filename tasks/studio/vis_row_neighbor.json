@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_row_neighbor",
+  "scene": "studio",
+  "category": "spatial_configuration",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_row_neighbor_exp1",
+      "instruction": "Take the duffel bag off the shelving rack by the south wall of props storage and put it on the work table.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "duffel_bag_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "duffel_bag_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_row_neighbor_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_row] What color is the bag that sat right next to the duffel before you moved it off the shelving rack? (answer with one lowercase color word, e.g. \"teal\")",
+      "question": "What color is the bag that sat right next to the duffel before you moved it off the shelving rack?",
+      "answer_type": "color",
+      "reference_answer": "yellow",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_row_neighbor_fetch",
+      "type": "action",
+      "instruction": "Bring me the bag that sat right next to the duffel you moved. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "bag"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "satchel_bag_2",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

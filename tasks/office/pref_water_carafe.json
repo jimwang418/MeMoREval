@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "task": "pref_water_carafe",
+  "scene": "office",
+  "category": "user_preference",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "office_tour",
+      "instruction": "Tour the office and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "open_office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pref_water_carafe_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "One thing about me — I always drink from the glass water carafe, never the tumblers or bottles."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "pref_water_carafe_qa_pref",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_pref] What does the user drink from? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What does the user drink from?",
+      "answer_type": "category",
+      "reference_answer": [
+        "water_carafe"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_water_carafe_qa_loc",
+      "type": "information",
+      "instruction": "Answer from memory about this office; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_loc] Where is the water carafe? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Where is the water carafe?",
+      "answer_type": "region",
+      "reference_answer": "meeting_room",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_water_carafe_fetch",
+      "type": "action",
+      "instruction": "Bring me my usual water vessel. I'm at the coffee table in the lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "water_carafe"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "water_carafe_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "meeting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "water_carafe_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "water_carafe_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

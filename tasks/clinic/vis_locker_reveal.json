@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "task": "vis_locker_reveal",
+  "scene": "clinic",
+  "category": "occluded_state",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vis_locker_reveal_exp1",
+      "instruction": "Check inside the two lockers in the vestibule, then close them again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "locker_cabinet_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "locker_cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "locker_cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "magazine_booklet_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "locker_cabinet_0",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "locker_cabinet_0",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "locker_cabinet_1"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "locker_cabinet_1",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "locker_cabinet_1",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "cardboard_box_0"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "locker_cabinet_1",
+            "subtarget": "door_right"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "locker_cabinet_1",
+            "subtarget": "door_left"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "vis_locker_reveal_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_which_locker] Two lockers stand in the vestibule. As you face them, which one has the magazine inside - left or right? Answer with one word. (answer concisely)",
+      "question": "Two lockers stand in the vestibule. As you face them, which one has the magazine inside - left or right? Answer with one word.",
+      "answer_type": "side",
+      "reference_answer": "left",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    }
+  ]
+}

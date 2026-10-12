@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "task": "reloc_clipboard",
+  "scene": "clinic",
+  "category": "object_location",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reloc_clipboard_exp1",
+      "instruction": "Take the patient chart clipboard from the exam room to reception.",
+      "user_messages": [
+        "The patient chart clipboard is in exam room 2."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "reception_desk_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "reception_desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "reloc_clipboard_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_origin] Which piece of furniture was the patient chart clipboard on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was the patient chart clipboard on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "desk"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_clipboard_return",
+      "type": "action",
+      "instruction": "Put the patient chart clipboard back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "patient_chart_clipboard_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "patient_chart_clipboard_0",
+          "region": "exam_room_2"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "patient_chart_clipboard_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_1"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

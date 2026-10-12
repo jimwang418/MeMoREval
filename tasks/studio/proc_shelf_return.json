@@ -1,0 +1,449 @@
+{
+  "schema_version": "1.0",
+  "task": "proc_shelf_return",
+  "scene": "studio",
+  "category": "skill_outcome",
+  "in_stacked_composite": false,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "proc_shelf_return_exp1",
+      "instruction": "Take the duffel bag and the fedora off the shelving rack in props storage and put them on the work table. Then return the duffel bag to where you took it from. Actually, on second thought, bring the duffel bag back to the work table too.",
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "moving_box_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "moving_box_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "packing_tape_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "motorcycle_helmet_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "satchel_bag_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "beanie_hat_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_3",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "satchel_bag_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "fedora_hat_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "packing_tape_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "equipment_case_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "duffel_bag_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "motorcycle_helmet_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_box_3",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "backpack_gear_bag_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_bin_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "nylon_strap_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "nylon_strap_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_4",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "nylon_strap_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "beanie_hat_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_box_4",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_crate_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "duffel_bag_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "fedora_hat_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "motorcycle_helmet_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_tote_5",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "archive_box_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "parts_organizer_box_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "label_maker_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "packing_tape_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "moving_box_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "canvas_tote_bag_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "beanie_hat_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "satchel_bag_2",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "storage_bin_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "nylon_strap_3",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "satchel_bag_3",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "archive_box_1",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "scarf_0",
+          "region": "office"
+        },
+        {
+          "op": "move_object",
+          "id": "garment_bag_0",
+          "region": "office"
+        }
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "duffel_bag_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "duffel_bag_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "fedora_hat_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "fedora_hat_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "duffel_bag_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "duffel_bag_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_rack_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "shelving_rack_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_rack_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "duffel_bag_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "work_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "work_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "proc_shelf_return_return",
+      "type": "action",
+      "instruction": "Return the fedora on the work table to where you took it from.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "fedora_hat_0"
+      },
+      "success": {
+        "predicate": "first_place_key",
+        "params": {
+          "destinations": [
+            "shelving_rack_0",
+            "shelving_rack_1",
+            "shelving_rack_2"
+          ],
+          "key": "in",
+          "instance": "fedora_hat_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "fedora_hat_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "fedora_hat_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_rack_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_rack_0"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

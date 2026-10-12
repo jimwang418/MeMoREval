@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "task": "spatial_shelf_vacate",
+  "scene": "home",
+  "category": "spatial_configuration",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spatial_shelf_vacate_exp1",
+      "instruction": "Take the toy dinosaur figurine off the bookshelf and put it on the desk in the same room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "toy_dinosaur_figurine_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "toy_dinosaur_figurine_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "spatial_shelf_vacate_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_level] The bookshelf in the kids' bedroom with the bunk bed has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the toy dinosaur figurine on before you moved it off the shelf? (answer with just the integer)",
+      "question": "The bookshelf in the kids' bedroom with the bunk bed has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the toy dinosaur figurine on before you moved it off the shelf?",
+      "answer_type": "count",
+      "reference_answer": 5,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_shelf_vacate_fetch",
+      "type": "action",
+      "instruction": "Bring me the storybook that sits two shelf levels below where the toy dinosaur figurine used to be on the bookshelf. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "storybook"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "childrens_hardcover_storybook_5",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "childrens_hardcover_storybook_5"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "childrens_hardcover_storybook_5"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

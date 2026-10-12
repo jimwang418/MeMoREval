@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "task": "reloc_satchel",
+  "scene": "studio",
+  "category": "object_location",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reloc_satchel_exp1",
+      "instruction": "Take the satchel from props storage and put it on the bench ottoman in the dressing room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "bench_ottoman_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "bench_ottoman_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "reloc_satchel_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_origin] Which piece of furniture was that satchel on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was that satchel on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "shelving_rack"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_satchel_return",
+      "type": "action",
+      "instruction": "Put the satchel that's on the bench ottoman in the dressing room back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "satchel_bag_1"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "satchel_bag_1",
+          "region": "props_storage"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "satchel_bag_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "shelving_rack_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "in": "shelving_rack_1"
+          }
+        }
+      ],
+      "max_steps": 16
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "task": "loc_gaffer_tape",
+  "scene": "studio",
+  "category": "object_location",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "studio_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "editing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "props_storage"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "office"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dressing_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "loc_gaffer_tape_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_loc] Which room is the gaffer tape in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the gaffer tape in?",
+      "answer_type": "region",
+      "reference_answer": "shooting_area",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "loc_gaffer_tape_fetch",
+      "type": "action",
+      "instruction": "Bring me the gaffer tape. I'm at the coffee table in the client lounge.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "gaffer_tape"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "gaffer_tape_roll_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "shooting_area"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "gaffer_tape_roll_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "gaffer_tape_roll_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "client_lounge"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}

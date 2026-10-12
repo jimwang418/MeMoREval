@@ -1,0 +1,1342 @@
+{
+  "schema_version": "1.0",
+  "task": "stacked_home",
+  "scene": "home",
+  "components": [
+    "pref_snack",
+    "reloc_remote",
+    "vis_mug_color",
+    "vis_shelf_clearout",
+    "spatial_shelf_vacate",
+    "loc_teakettle",
+    "collect_toys",
+    "vis_teddy_rooms",
+    "vis_container_reveal",
+    "spatial_row_neighbor"
+  ],
+  "experience": [
+    {
+      "id": "home_tour",
+      "instruction": "Walk through the house and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "dining_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "By the way, I like fruits as snacks."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp2",
+      "instruction": "Take the mug from the living room coffee table and put it on the master bedroom dresser.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "dresser_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "dresser_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp3",
+      "instruction": "Take a look at the stuffed animals in the kids' bedrooms.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "plush_teddy_bear_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "plush_teddy_bear_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "teddy_bear_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp4",
+      "instruction": "Check inside the wardrobe in the first kids' bedroom, then close it again.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "wardrobe_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "rolled_knit_scarf_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up_1"
+          }
+        },
+        {
+          "skill": "close",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp5",
+      "instruction": "Clear the books off the wall shelf in the first kids' bedroom and put them on the desk there.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "childrens_hardcover_book_4"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "childrens_hardcover_book_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "childrens_hardcover_book_3"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "childrens_hardcover_book_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_4"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp6",
+      "instruction": "Take the wooden dinosaur figurine off the low bookshelf and put it on the nightstand in the same room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "childrens_hardcover_book_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "wooden_dinosaur_figurine_toy_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "wooden_dinosaur_figurine_toy_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "nightstand_2"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "nightstand_2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp7",
+      "instruction": "Take the toy dinosaur figurine off the bookshelf and put it on the desk in the same room.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "toy_dinosaur_figurine_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "toy_dinosaur_figurine_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "desk_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "desk_1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stacked_home_exp8",
+      "instruction": "Take the TV remote from the coffee table and put it on the side table in the master bedroom.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_1"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "hallway"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "pref_snack_qa_pref",
+      "component_task": "pref_snack",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_snack_qa_pref] What does the user want when they ask for a snack? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What does the user want when they ask for a snack?",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "fruit"
+        ],
+        [
+          "fruits"
+        ],
+        [
+          "apple"
+        ],
+        [
+          "apples"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_snack_qa_loc",
+      "component_task": "pref_snack",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [pref_snack_qa_loc] Which room is the fruit in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the fruit in?",
+      "answer_type": "region",
+      "reference_answer": "kitchen",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "reloc_remote_qa_origin",
+      "component_task": "reloc_remote",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [reloc_remote_qa_origin] Which piece of furniture was that TV remote on before you moved it? Name the specific furniture type. (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "Which piece of furniture was that TV remote on before you moved it? Name the specific furniture type.",
+      "answer_type": "category",
+      "reference_answer": [
+        "coffee_table"
+      ],
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_mug_color_qa_color",
+      "component_task": "vis_mug_color",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_mug_color_qa_color] What color is the mug you moved to the master bedroom dresser? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color is the mug you moved to the master bedroom dresser?",
+      "answer_type": "color",
+      "reference_answer": "red",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_shelf_clearout_qa_next_to_plant",
+      "component_task": "vis_shelf_clearout",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_shelf_clearout_qa_next_to_plant] What color was the book that sat right next to the potted plant on the wall shelf in the first kids' bedroom? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color was the book that sat right next to the potted plant on the wall shelf in the first kids' bedroom?",
+      "answer_type": "color",
+      "reference_answer": "yellow",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_shelf_vacate_qa_level",
+      "component_task": "spatial_shelf_vacate",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_shelf_vacate_qa_level] The bookshelf in the kids' bedroom with the bunk bed has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the toy dinosaur figurine on before you moved it off the shelf? (answer with just the integer)",
+      "question": "The bookshelf in the kids' bedroom with the bunk bed has 6 shelf levels. Counting from the bottom (1) to the top (6), which level was the toy dinosaur figurine on before you moved it off the shelf?",
+      "answer_type": "count",
+      "reference_answer": 5,
+      "grader": "numeric",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "loc_teakettle_qa_loc",
+      "component_task": "loc_teakettle",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [loc_teakettle_qa_loc] Which room is the tea kettle in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the tea kettle in?",
+      "answer_type": "region",
+      "reference_answer": "kitchen",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "collect_toys_qa_floor",
+      "component_task": "collect_toys",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [collect_toys_qa_floor] Toys are lying on the floor in some rooms - how many in which rooms? (answer with a JSON object mapping region ids to counts, e.g. {\"pantry\": 2})",
+      "question": "Toys are lying on the floor in some rooms - how many in which rooms?",
+      "answer_type": "set",
+      "reference_answer": {
+        "kids_bedroom_1": 1,
+        "kids_bedroom_2": 3
+      },
+      "grader": "set_match",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_teddy_rooms_qa_room",
+      "component_task": "vis_teddy_rooms",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_teddy_rooms_qa_room] Which room is the white teddy bear in? (answer with just the region id, e.g. \"pantry\")",
+      "question": "Which room is the white teddy bear in?",
+      "answer_type": "region",
+      "reference_answer": "kids_bedroom_1",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "vis_container_reveal_qa_right_item",
+      "component_task": "vis_container_reveal",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [vis_container_reveal_qa_right_item] Two similar items are stored inside the kids' bedroom wardrobe. As you face the wardrobe, what color is the one on the RIGHT? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "Two similar items are stored inside the kids' bedroom wardrobe. As you face the wardrobe, what color is the one on the RIGHT?",
+      "answer_type": "color",
+      "reference_answer": "orange",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "spatial_row_neighbor_qa_row_neighbor",
+      "component_task": "spatial_row_neighbor",
+      "type": "information",
+      "instruction": "Answer from memory about this house; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [spatial_row_neighbor_qa_row_neighbor] What color was the book right next to the wooden dinosaur figurine before you took it off the low bookshelf in the first kids' bedroom? (answer with one lowercase color word, e.g. \"green\")",
+      "question": "What color was the book right next to the wooden dinosaur figurine before you took it off the low bookshelf in the first kids' bedroom?",
+      "answer_type": "color",
+      "reference_answer": "purple",
+      "grader": "exact",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "loc_teakettle_fetch",
+      "component_task": "loc_teakettle",
+      "type": "action",
+      "instruction": "Bring me the tea kettle. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "tea_kettle"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "tea_kettle_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "tea_kettle_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "tea_kettle_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "pref_snack_fetch",
+      "component_task": "pref_snack",
+      "type": "action",
+      "instruction": "Bring me my usual snack. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "apple"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "apple_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kitchen"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "apple_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "apple_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "tea_kettle_0",
+          "receptacle": "stove_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "hallway"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_mug_color_fetch",
+      "component_task": "vis_mug_color",
+      "type": "action",
+      "instruction": "Bring me the red mug. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "coffee_mug"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "coffee_mug_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "coffee_mug_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_teddy_rooms_fetch",
+      "component_task": "vis_teddy_rooms",
+      "type": "action",
+      "instruction": "Bring me the white teddy bear. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "teddy_bear"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "plush_teddy_bear_1",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "plush_teddy_bear_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "plush_teddy_bear_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_shelf_clearout_fetch",
+      "component_task": "vis_shelf_clearout",
+      "type": "action",
+      "instruction": "Bring me the book that was right next to the potted plant on the wall shelf. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "book"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_4",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_4"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_shelf_vacate_fetch",
+      "component_task": "spatial_shelf_vacate",
+      "type": "action",
+      "instruction": "Bring me the storybook that sits two shelf levels below where the toy dinosaur figurine used to be on the bookshelf. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "storybook"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "childrens_hardcover_storybook_5",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "childrens_hardcover_storybook_5"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "childrens_hardcover_storybook_5"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "scene_changes": [
+        {
+          "op": "move_object",
+          "id": "hardcover_book_4",
+          "receptacle": "floating_shelf_0"
+        },
+        {
+          "op": "repark_robot",
+          "region": "hallway"
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "spatial_row_neighbor_fetch",
+      "component_task": "spatial_row_neighbor",
+      "type": "action",
+      "instruction": "Bring me the book that sat right next to the wooden dinosaur figurine on the low bookshelf in the first kids' bedroom. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "book"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "hardcover_book_2",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "hardcover_book_2"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "hardcover_book_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    },
+    {
+      "id": "vis_container_reveal_fetch",
+      "component_task": "vis_container_reveal",
+      "type": "action",
+      "instruction": "Bring me the item that was on the RIGHT inside the kids' bedroom wardrobe, as you face it. I'm at the coffee table in the living room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "scarf"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "rolled_knit_scarf_0",
+          "target": "coffee_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "wardrobe_0"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up"
+          }
+        },
+        {
+          "skill": "open",
+          "args": {
+            "target": "wardrobe_0",
+            "subtarget": "door_up_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "rolled_knit_scarf_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "rolled_knit_scarf_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 14
+    },
+    {
+      "id": "reloc_remote_return",
+      "component_task": "reloc_remote",
+      "type": "action",
+      "instruction": "Put the TV remote that's on the side table in the master bedroom back where it originally was.",
+      "goal": {
+        "type": "restore",
+        "object_hint": "tv_remote_control_0"
+      },
+      "success": {
+        "predicate": "object_in_region",
+        "params": {
+          "instance": "tv_remote_control_0",
+          "region": "living_room"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "master_bedroom"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "tv_remote_control_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 16
+    },
+    {
+      "id": "collect_toys_gather",
+      "component_task": "collect_toys",
+      "type": "action",
+      "instruction": "Gather the toys that are lying on the floor in the kids' bedrooms and put them on the coffee table in the living room.",
+      "goal": {
+        "type": "gather",
+        "object_hint": "toy",
+        "destination": "living_room"
+      },
+      "success": {
+        "predicate": "all_in_region",
+        "params": {
+          "instances": [
+            "teddy_bear_1",
+            "toy_car_0",
+            "toy_dinosaur_figurine_1",
+            "wooden_dinosaur_figurine_toy_1"
+          ],
+          "region": "living_room"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "wooden_dinosaur_figurine_toy_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "wooden_dinosaur_figurine_toy_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "teddy_bear_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "teddy_bear_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "toy_dinosaur_figurine_1"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "toy_dinosaur_figurine_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "kids_bedroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "toy_car_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "toy_car_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "living_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "coffee_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "coffee_table_0"
+          }
+        }
+      ],
+      "max_steps": 30
+    }
+  ]
+}

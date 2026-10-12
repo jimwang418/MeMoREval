@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "task": "pref_allergy_med",
+  "scene": "clinic",
+  "category": "user_preference",
+  "in_stacked_composite": true,
+  "experience": [
+    {
+      "id": "clinic_tour",
+      "instruction": "Walk through the clinic and take note of what you see.",
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "vestibule"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_4"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "bathroom_2"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "lab"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_3"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "exam_room_1"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "reception"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pref_allergy_med_exp1",
+      "instruction": "Continue with your duties.",
+      "user_messages": [
+        "By the way, nasal sprays don't agree with me - for my allergies I only ever take the tablets."
+      ],
+      "skill_calls": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "corridor"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "pref_allergy_med_qa",
+      "type": "information",
+      "instruction": "Answer from memory about this clinic; do not move. Reply with the answer skill, one question per turn.\nQuestions:\n- [qa_pref] What form of allergy medicine does the user take? (answer with a JSON list of category words, e.g. [\"harmonica\"])",
+      "question": "What form of allergy medicine does the user take?",
+      "answer_type": "category",
+      "reference_answer": [
+        [
+          "tablets"
+        ],
+        [
+          "tablet"
+        ],
+        [
+          "pills"
+        ],
+        [
+          "pill"
+        ]
+      ],
+      "grader": "set_match_any",
+      "allowed_skills": [
+        "answer"
+      ],
+      "max_steps": 3
+    },
+    {
+      "id": "pref_allergy_med_fetch",
+      "type": "action",
+      "instruction": "Bring me my allergy medicine. I'm at the side table in the waiting room.",
+      "goal": {
+        "type": "fetch",
+        "object_hint": "allergy"
+      },
+      "success": {
+        "predicate": "fetched_onto",
+        "params": {
+          "instance": "allergy_relief_tablets_box_0",
+          "target": "side_table_0"
+        }
+      },
+      "reference_plan": [
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "pharmacy"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "allergy_relief_tablets_box_0"
+          }
+        },
+        {
+          "skill": "pick",
+          "args": {
+            "target": "allergy_relief_tablets_box_0"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "region": "waiting_room"
+          }
+        },
+        {
+          "skill": "navigate_to",
+          "args": {
+            "target": "side_table_0"
+          }
+        },
+        {
+          "skill": "place",
+          "args": {
+            "on": "side_table_0"
+          }
+        }
+      ],
+      "max_steps": 10
+    }
+  ]
+}
